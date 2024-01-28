@@ -21,6 +21,11 @@ import {
   
   const toPubkey = new PublicKey(suppliedToPubkey);
   
+if(!PublicKey.isOnCurve(toPubkey)) {
+    console.log(`Please enter a valid pub key`);
+    process.exit(1);
+}
+
   const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 
   console.log(
